@@ -1,13 +1,15 @@
 <template>
   <div>
     <!-- Product List -->
-    <div v-if="products.length">
-      <div v-for="product in products" :key="product.id" class="product-card">
-        <h2>{{ currentLanguage === 'la' ? product.title_la : product.title_en }}</h2>
-        <p>{{ currentLanguage === 'la' ? product.description_la : product.description_en }}</p>
- 
-      </div>
-    </div>
+    {{ t("about") }}
+    <v-row>
+      <v-col v-for="items in news" :key="items.id" cols="12" sm="6" md="4">
+        <v-card>
+          <v-card-title>{{ items.title   }}</v-card-title>
+          <v-card-title>{{ items.description   }}</v-card-title>
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -17,6 +19,9 @@ export default {
  
     currentLanguage() {
       return this.$store.getters.getCurrentLanguage;
+    },
+    news() {
+      return this.$store.state.news.newsData;
     }
   },
   data() {
@@ -25,6 +30,10 @@ export default {
     };
   },
   mounted() {
+    const lang = this.$cookies.get('lang');
+
+    this.$store.dispatch('news/getNews', lang);
+
     this.fetchData();
   },
   methods: {

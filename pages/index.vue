@@ -3,6 +3,14 @@
     {{ t("home") }}
  
 
+    <v-row>
+      <v-col v-for="product in news" :key="product.id" cols="12" sm="6" md="4">
+        <v-card>
+          <v-card-title>{{ product.title }}</v-card-title>
+          <v-card-title>{{ product.description }}</v-card-title>
+        </v-card>
+      </v-col>
+    </v-row>
     
   </div>
 </template>
@@ -23,6 +31,7 @@ export default {
  
     this.$store.dispatch('getTranslationData', lang);
     this.$store.dispatch('product/getProducts', lang);
+
   },
   methods: {
     changeLanguage(lang) {

@@ -1,10 +1,17 @@
 <template>
   <v-app>
     <!-- Include the Header Component -->
+   <div>
+     
     <Header />
+   </div>
 
     <!-- Main content of the page -->
-    <Nuxt />
+   <v-main>
+    <v-container>
+      <Nuxt />
+    </v-container>
+   </v-main>
   </v-app>
 </template>
 
