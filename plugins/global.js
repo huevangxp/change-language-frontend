@@ -17,5 +17,5 @@ if (!Vue.__my_mixin__) {
                 return findMatchCode.string
             }
         }
-    }) // Set up your mixin then
+    })  
 }

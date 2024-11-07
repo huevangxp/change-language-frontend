@@ -14,7 +14,7 @@
 <script>
 export default {
   computed: {
-    // Get current language from Vuex store
+ 
     currentLanguage() {
       return this.$store.getters.getCurrentLanguage;
     }

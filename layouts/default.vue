@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-app>
     <!-- Include the Header Component -->
     <Header />
 
     <!-- Main content of the page -->
     <Nuxt />
-  </div>
+  </v-app>
 </template>
 
 <script>
