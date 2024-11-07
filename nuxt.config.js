@@ -25,11 +25,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/axios.js', mode: 'client' }
   ],
   publicRuntimeConfig: {
-    axios: {
-      baseURL: 'http://localhost:3001/api'
-    }
+      api: 'http://localhost:9000/api'
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components

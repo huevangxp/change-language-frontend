@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- Product List -->
+    {{ products }}
     <div v-if="products.length">
       <div v-for="product in products" :key="product.id" class="product-card">
         <h2>{{ currentLanguage === 'la' ? product.name_la : product.name_en }}</h2>
@@ -30,7 +31,8 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await this.$axios.$get('/product');
+        const response = await this.$axios.get('http://localhost:9000/api/products?lang=la');
+        console.log('data ------------------->',response);
         this.products = response;
       } catch (error) {
         console.error('Error fetching products:', error);
